@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "node-sass source/css/style.scss build/css/style.css -w",
-    "concat-css": "cat source/css/*.css > build/css/all.css"
+    "concat-css": "cat build/temp_css/*.css > build/css/all.css"
 
   },
   "repository": {
