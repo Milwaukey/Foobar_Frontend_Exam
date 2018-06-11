@@ -232,7 +232,7 @@
 
 #dashboard_container {
   width: 100vw;
-  background: #f8f9fb;
+  background: #fbfcfe;
   display: grid; }
 
 .top_nav .indhold_nav_top {
@@ -253,9 +253,7 @@
 .logo {
   text-align: center;
   margin: auto;
-  margin-top: 30px; }
-
-.logo b {
+  margin-top: 30px;
   font-size: 45px;
   font-family: "Vibur", cursive;
   color: #fee;
@@ -292,6 +290,30 @@
   padding: 20px;
   display: grid;
   grid-gap: 20px; }
+
+.que_grid_wrapper {
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  background: #35394a;
+  border-radius: 10px;
+  color: white; }
+  .que_grid_wrapper .que {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #f3f3f3;
+    font-family: "Bowlby One", cursive; }
+  .que_grid_wrapper #que_reciever {
+    padding: 0 0 0px 0;
+    margin-top: 30px; }
+  .que_grid_wrapper svg {
+    stroke: #f09819; }
+    .que_grid_wrapper svg .st0 {
+      stroke: white;
+      fill: white;
+      font-family: "Open Sans", sans-serif;
+      font-size: 5px; }
 
 .box {
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
@@ -347,7 +369,8 @@
   text-transform: uppercase;
   color: #f3f3f3;
   font-family: "Bowlby One", cursive;
-  border-radius: 10px; }
+  border-radius: 10px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1); }
 
 #customerOrder_reciever {
   padding: 15px; }
@@ -358,24 +381,180 @@
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
     background: #f7f7f7;
     display: grid;
-    grid-template-columns: 15px 40px 1fr 1fr; }
+    grid-template-columns: 15px 5px 1fr 1fr; }
     #customerOrder_reciever .order_wrapper .color_order {
       background: #35394a;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px; }
     #customerOrder_reciever .order_wrapper .order_id {
-      font-family: "Bowlby One", cursive; }
+      font-family: "Bowlby One", cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px; }
     #customerOrder_reciever .order_wrapper .order_info {
       grid-column: 3/5;
       font-family: "Open Sans", sans-serif; }
+    #customerOrder_reciever .order_wrapper .paid_img {
+      grid-column: 4/5;
+      padding: 10px;
+      align-self: center;
+      margin-left: 40px; }
+      #customerOrder_reciever .order_wrapper .paid_img img {
+        width: 101px; }
+    #customerOrder_reciever .order_wrapper .beers {
+      padding: 10px;
+      display: flex; }
+      #customerOrder_reciever .order_wrapper .beers img {
+        width: auto;
+        height: 100px;
+        margin-right: 5px; }
 
-#beerInfo_reciever .beer_wrapper .beer_img img {
-  width: 40px; }
+.beer_heading {
+  width: 100%;
+  height: 50px;
+  background: #f09819;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #f3f3f3;
+  font-family: "Bowlby One", cursive;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1); }
 
-#beerInfo_reciever .beer_wrapper .beer_info .beer_details {
-  width: 100px;
-  height: 20px;
-  background: #f09819; }
+#beerInfo_reciever {
+  display: grid;
+  grid-gap: 25px; }
+  #beerInfo_reciever .beer_wrapper {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255, 255, 255, 0.5) 47%, rgba(0, 0, 0, 0.5) 100%);
+    background-blend-mode: screen; }
+    #beerInfo_reciever .beer_wrapper .beer_img {
+      padding-top: 15px;
+      height: 190px; }
+      #beerInfo_reciever .beer_wrapper .beer_img img {
+        width: 40px; }
+    #beerInfo_reciever .beer_wrapper .beer_info {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 200px;
+      margin-bottom: 20px;
+      justify-content: space-between;
+      font-family: "Open Sans", sans-serif; }
+      #beerInfo_reciever .beer_wrapper .beer_info .beer_name {
+        text-transform: uppercase;
+        font-size: 22px; }
+      #beerInfo_reciever .beer_wrapper .beer_info .beer_description {
+        font-size: 15px; }
+      #beerInfo_reciever .beer_wrapper .beer_info .beer_details {
+        width: 100px;
+        height: 30px;
+        align-self: center;
+        border: 2px solid transparent;
+        border-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+        border-image-slice: 1;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 2px;
+        font-family: "Open Sans", sans-serif; }
+        #beerInfo_reciever .beer_wrapper .beer_info .beer_details:hover {
+          border: 2px solid transparent;
+          background: #f09819;
+          color: #f3f3f3; }
+
+.message_grid_wrapper .message_wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 15px; }
+  .message_grid_wrapper .message_wrapper .message_box {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    padding: 15px;
+    font-family: "Open Sans", sans-serif;
+    background: #f8f9fc; }
+    .message_grid_wrapper .message_wrapper .message_box .crew_img {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center; }
+      .message_grid_wrapper .message_wrapper .message_box .crew_img img {
+        width: 60%;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 2px;
+        border-radius: 50%; }
+    .message_grid_wrapper .message_wrapper .message_box .message_wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      .message_grid_wrapper .message_wrapper .message_box .message_wrap h2 {
+        font-family: "Bowlby One", cursive;
+        font-size: 23px; }
+      .message_grid_wrapper .message_wrapper .message_box .message_wrap .read_more {
+        width: 130px;
+        color: #f3f3f3;
+        background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+        text-transform: uppercase;
+        text-align: center;
+        padding: 2px;
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 15px;
+        margin-top: 15px; }
+
+.slideOut {
+  animation: 1s ease-out slideOut;
+  animation-fill-mode: forwards; }
+
+@keyframes slideOut {
+  0% {
+    transform: translatex(0); }
+  100% {
+    transform: translatex(-200%); } }
+
+#storage_reciever {
+  margin-top: 15px; }
+  #storage_reciever .storage_wrapper {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    justify-content: space-between;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); }
+    #storage_reciever .storage_wrapper .storage_name {
+      font-size: 18px;
+      margin-top: 15px;
+      text-transform: uppercase;
+      margin-bottom: 15px; }
+    #storage_reciever .storage_wrapper .storage_mount {
+      font-size: 22px;
+      font-weight: 800; }
+    #storage_reciever .storage_wrapper .storage_box {
+      width: 110px;
+      align-self: center; }
+      #storage_reciever .storage_wrapper .storage_box img {
+        width: 100%; }
+    #storage_reciever .storage_wrapper .storage_now {
+      width: 100px;
+      align-self: center;
+      color: #f3f3f3;
+      background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+      text-transform: uppercase;
+      text-align: center;
+      padding: 2px;
+      font-family: "Open Sans", sans-serif;
+      margin-bottom: 15px;
+      margin-top: 15px; }
+      #storage_reciever .storage_wrapper .storage_now:hover {
+        background: #f09819;
+        color: #f3f3f3; }
 
 /* MOBILE LANDSCAPE */
 /* IPAD PORTRAIT */
@@ -393,6 +572,8 @@
     position: relative;
     box-shadow: 4px 0 2px -2px rgba(0, 0, 0, 0.1);
     grid-column: 1/2; }
+    #menu_info .menu_text_wrapper {
+      margin-top: 90px; }
   .top_nav .indhold_nav_top {
     height: 100px;
     padding-left: 0; }
@@ -407,6 +588,18 @@
   .tabs_grid_wrapper {
     grid-column: 2/4; }
   .beer_grid_wrapper {
-    grid-column: 1/4; } }
+    grid-column: 1/4; }
+  #beerInfo_reciever {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 25px; }
+  .message_grid_wrapper {
+    grid-column: 1/2; }
+  .storage_grid_wrapper {
+    grid-column: 2/4; }
+    .storage_grid_wrapper #storage_reciever {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 15px; } }
 
 /* LARGE DESKTOP */

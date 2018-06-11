@@ -47,14 +47,37 @@
 
                 <div class="indhold_nav_top">Dashboard</div>
 
-                <div class="logo"><b>Closing In <span class="time_stamp"></span> hours <span class="minuts"> 50</span> Minuts</b></div>
+                <div class="logo"><b>Closing In <span class="time_stamp">8</span><span class="minuts"> 50</span></b></div>
 
                 <!-- <div class="time_stamp"></div> -->
 
                                     <div id="dashboard_wrapper">
                                         
-                                                    <div class="que_grid_wrapper"> <div class="que">Que</div>
-                                                         <div id="que_reciever"></div>
+                                                    <div class="que_grid_wrapper"> <div class="que">People in Que</div>
+                                                         <div id="que_reciever">
+                                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                                    viewBox="0 0 200 58" style="enable-background:new 0 0 200 58;" xml:space="preserve">
+                                                                <style type="text/css">
+                                                                    .st0{fill:#AFAFAF;}
+                                                                    .st1{font-family:'OpenSans-Regular';}
+                                                                    .st2{font-size:5px;}
+                                                                    .st3{fill:none;stroke:#AFAFAF;stroke-width:0.25;stroke-miterlimit:10;}
+                                                                </style>
+                                                                <text transform="matrix(1 0 0 1 5.1108 7.5918)" class="st0 st1 st2">25</text>
+                                                                <text transform="matrix(1 0 0 1 5.1108 16.6988)" class="st0 st1 st2">20</text>
+                                                                <text transform="matrix(1 0 0 1 5.1108 25.8049)" class="st0 st1 st2">15</text>
+                                                                <text transform="matrix(1 0 0 1 5.1108 34.9119)" class="st0 st1 st2">10</text>
+                                                                <text transform="matrix(1 0 0 1 6.5405 44.0189)" class="st0 st1 st2">5</text>
+                                                                <text transform="matrix(1 0 0 1 6.5405 53.1255)" class="st0 st1 st2">0</text>
+                                                                <line class="st3" x1="14" y1="6.7" x2="193" y2="6.7"/>
+                                                                <line class="st3" x1="14" y1="15.8" x2="193" y2="15.8"/>
+                                                                <line class="st3" x1="14" y1="24.8" x2="193" y2="24.8"/>
+                                                                <line class="st3" x1="14" y1="33.9" x2="193" y2="33.9"/>
+                                                                <line class="st3" x1="14" y1="42.9" x2="193" y2="42.9"/>
+                                                                <line class="st3" x1="14" y1="52" x2="193" y2="52"/>
+                                                                <polyline points="15,30 20,30" fill="none" stroke="white" />
+                                                                </svg>
+                                                         </div>
                                                     </div>
 
                                                     <div class="box"> <div class="medarbejdere">Crew</div>
@@ -76,10 +99,83 @@
                                                     </div>
 
                                                     <div class="beer_grid_wrapper">
-                                                            <div class="orders">Beer Information</div>
+                                                            <div class="beer_heading">Beer Information</div>
                                                             <div id="beerInfo_reciever"></div>
                                                      </div>
-                                                    <div id="storage_reciever">STORAGE</div>
+
+                                                     <div class="message_grid_wrapper">
+                                                            <div class="beer_heading">Messages</div>
+                                                            
+                                                            <div class="message_wrapper">
+                                                            <div class="message_box">
+                                                               
+                                                                    <div id="delete" style="font-family: 'Bowlby One', cursive; position: absolute; margin: 10px;">X</div>
+                                                                
+                                                                <div class="crew_img">
+                                                                    <img src="img/marie.jpg">
+                                                                    <p>Marie</p>
+                                                                </div>
+
+                                                                <div class="message_wrap">
+                                                                <h2>Running late</h2>
+                                                                <p>Meeting at 10 o'clock in Brøndby, so i will be late tomorrow!</p>
+                                                                <div class="read_more">Read More</div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="message_box">
+                                                                    <div id="delete" style="font-family: 'Bowlby One', cursive; position: absolute; margin: 10px;">X</div>
+                                                                    <div class="crew_img">
+                                                                        <img src="img/martin.jpg">
+                                                                        <p>Peter</p>
+                                                                    </div>
+    
+                                                                    <div class="message_wrap">
+                                                                    <h2>Amazing Friday</h2>
+                                                                    <p>Thank u all for last friday, it was amazing! </p>
+                                                                    <div class="read_more">Read More</div>
+                                                                    </div>
+    
+                                                                </div>
+
+                                                                <div class="message_box">
+                                                                        <div id="delete" style="font-family: 'Bowlby One', cursive; position: absolute; margin: 10px;">X</div>
+                                                                        <div class="crew_img">
+                                                                            <img src="img/peter.jpg">
+                                                                            <p>Peter</p>
+                                                                        </div>
+        
+                                                                        <div class="message_wrap">
+                                                                        <h2>New Record!!</h2>
+                                                                        <p>We have archived a new record, FooBar can run for 6 hours with no error!</p>
+                                                                        <div class="read_more">Read More</div>
+                                                                    </div>
+        
+                                                                    </div>
+
+                                                                    <div class="message_box">
+                                                                            <div id="delete" style="font-family: 'Bowlby One', cursive; position: absolute; margin: 10px;">X</div>
+                                                                            <div class="crew_img">
+                                                                                <img src="img/jonas.jpg">
+                                                                                <p>Jonas</p>
+                                                                            </div>
+            
+                                                                            <div class="message_wrap">
+                                                                            <h2>I got this idea..</h2>
+                                                                            <p>How about a whole new beer combination, that take the top 3 best beers and put it together.</p>
+                                                                            <div class="read_more">Read More</div>
+                                                                            </div> 
+                                                                        </div>
+                                                                        </div>
+                                                            
+                                                     </div>
+
+                                                    <div class="storage_grid_wrapper">
+                                                        <div class="orders">Storage</div>
+                                                            <div id="storage_reciever"></div>
+                                                    </div>
+                                                    
 
                                     </div>
     </div>
@@ -107,19 +203,12 @@
 
         <template id="order_template">
                 <div class="order_wrapper">
-                        <div class="color_order"></div>
-                        
-                        <div class="order_id">
-                            <p class="ids"></p>
-
-                            <!-- <div class="paid_img">
-                                <img src="img/paid_card.png">
-                            </div> -->
+                        <div class="color_order"></div>                            
+                        <div class="beers">
                             
                         </div>
-
-                        <div class="beers">
-                            <img src="">
+                        <div class="paid_img">
+                                <img src="img/creditcard.svg">
                         </div>
                  </div>
             </template>
@@ -132,19 +221,9 @@
                 <div class="storage_box">
                     <img src="img/box.svg">
                 </div>
-                <div class="storage_now">ORDER NOW</div>
+                <div class="storage_now">ORDER</div>
             </div>
         </template>
-
-
-        <template id="que_template">
-
-            <p class="que_number"></p>
-            <p class="start_time"></p>
-
-        </template>
-
-
 
 
         <template id="beertypes_template">
@@ -156,7 +235,7 @@
                 <div class="beer_info">
                     <h2 class="beer_name"></h2>
                     <p class="beer_description"></p>
-                    <div class="beer_details"></div>
+                    <div class="beer_details">Details</div>
                 </div>
             </div>
         </template>

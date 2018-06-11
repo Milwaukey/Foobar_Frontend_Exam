@@ -33,6 +33,10 @@
  
         grid-column: 1/2;
 
+        .menu_text_wrapper {
+            margin-top: 90px;
+        }
+
     }
 
     .top_nav {
@@ -63,6 +67,31 @@
     .beer_grid_wrapper {
         grid-column: 1/4;
     }
+
+    #beerInfo_reciever {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 25px;
+    }
+
+    .message_grid_wrapper {
+        grid-column: 1/2;
+    }
+
+    .storage_grid_wrapper {
+    grid-column: 2/4;
+
+        #storage_reciever {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 15px;
+        }
+
+    }
+
+
+
+
 
 }
 

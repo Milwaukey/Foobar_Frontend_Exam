@@ -4,7 +4,7 @@
 let template_bartender = document.querySelector("#bartender_template").content;
 let template_beerType = document.querySelector("#beertypes_template").content;
 let template_orders = document.querySelector("#order_template").content;
-let template_que = document.querySelector("#que_template").content;
+// let template_que = document.querySelector("#que_template").content;
 let template_storage = document.querySelector("#storage_template").content;
 let data;
 
@@ -19,7 +19,7 @@ function loadScript(){
     document.querySelector("#bartender_reciever").innerHTML = '';
     document.querySelector("#beerInfo_reciever").innerHTML = '';
     document.querySelector("#customerOrder_reciever").innerHTML = '';
-    document.querySelector("#que_reciever").innerHTML = '';
+    // document.querySelector("#que_reciever").innerHTML = '';
     document.querySelector("#storage_reciever").innerHTML = '';
 
                 // BARTENDERS
@@ -78,18 +78,24 @@ function loadScript(){
 
                 // SERVING
                 data.serving.forEach(function(e){
-
+                    
+                    
+                    
                             // CLONE TEMPLATE FOR ORDERS
                             let clone_orders = template_orders.cloneNode(true);
 
-                            // ADDING STUFF TO THE RIGHT PLACE
-                            clone_orders.querySelector(".ids").textContent = '#'+e.id;
-                            clone_orders.querySelector(".beers").textContent = e.order;
-
                             // ADDING LABELS TO THE BEER TYPE
-                            // let beer_label = e.name.toLowerCase();
-                            // clone_bartender.querySelector(".beers img").src = "img/"+beer_label+".png";
-                            
+                            let imgHolder = clone_orders.querySelector(".beers");
+                            e.order.forEach(function(anOrder){
+                                let beertype = data.beertypes.find(function(el){
+                                    return el.name === anOrder
+                                });
+                                console.log(beertype)
+                                let img = document.createElement('img');
+                                img.src= "img/new_type/"+beertype.label;
+                                imgHolder.appendChild(img)
+        
+                            });
 
                             // APPENDING IT TO THE HTML
                             document.querySelector("#customerOrder_reciever").appendChild(clone_orders);
@@ -98,48 +104,76 @@ function loadScript(){
 
 
                 // QUE
-                data.queue.forEach(function(e){
-
-                            let clone_que = template_que.cloneNode(true);
-
-                            clone_que.querySelector(".que_number").textContent = e.id;
-                            clone_que.querySelector(".start_time").textContent = e.startTime;
-
-                            document.querySelector("#que_reciever").appendChild(clone_que);
-
-                });
-
                 let peopleInQue = data.queue.length;
-                console.log("There are: "+peopleInQue+" in que for a cold beer!");
+                let point = "14,52"; // Where the graphs starting from
 
+                 // Tilføjer nye punkter til vores polyline
+                 point += ' '+15+','+(52-peopleInQue);
+
+
+                 // En del med push 
+                let voresarraymedvaerdier = {point};
+
+
+
+                console.log(voresarraymedvaerdier);
+                // let arr = data.queue;
+
+
+                // ForEACH array, 
+        
+                document.querySelector("#que_reciever polyline").setAttribute("points", point);
 
                 // STORAGE
                 data.storage.forEach(function(e){
 
-                    let clone_storage = template_storage.cloneNode(true);
+                            let clone_storage = template_storage.cloneNode(true);
 
-                    clone_storage.querySelector(".storage_name").textContent = e.name;
-                    clone_storage.querySelector(".storage_mount").textContent = e.amount;
+                            clone_storage.querySelector(".storage_name").textContent = e.name;
+                            clone_storage.querySelector(".storage_mount").textContent = e.amount;
 
+                            let lowStorage = e.amount;
 
-                    document.querySelector("#storage_reciever").appendChild(clone_storage);
+                            if(lowStorage < 3) {
+                                clone_storage.querySelector(".storage_wrapper").style.background = "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)";
+                            }
+
+                            document.querySelector("#storage_reciever").appendChild(clone_storage);
 
                 });
 
-                var today = new Date();
+
+                // CLOSING IN TIME 
+                let today = new Date();
                 let goalDate = new Date(0, 0, 0, 21, 59, 0, 0);
 
-                document.querySelector(".time_stamp").textContent = (goalDate.getHours() - today.getHours());
-                document.querySelector(".minuts").textContent = (goalDate.getMinutes() - today.getMinutes());
+                document.querySelector(".time_stamp").textContent = (goalDate.getHours() - today.getHours()+" hours & ");
+                document.querySelector(".minuts").textContent = (goalDate.getMinutes() - today.getMinutes()+" minuts");
+
+                // IF STATEMENT THAT CHANGE THE HTML TEXT TO "WE ARE CLOSED" - WHEN TIME IS AFTER 22:00
+
+
+
+
+                // MESSAGES
+                // Remove element on click, via chechbox - så man ikke længere kan se elementet (Brug animationsend & display: none, så de andre elementer rykker sig op)
+                document.querySelector("#delete").addEventListener("click",function(ex){
+
+                    let bla = ex.target.parentElement;
+                
+                    bla.classList.add("slideOut");
+                    
+                    bla.addEventListener("animationend", function(){
+                        bla.style.display = "none";
+                    });
+                    
+                });
+                
+                
 }
 
 
 
-// var today = new Date();
-// let goalDate = new Date(0, 0, 0, 21, 59, 0, 0);
-
-// document.querySelector(".time_stamp").textContent = (goalDate.getHours() - today.getHours());
-// document.querySelector(".minuts").textContent = (goalDate.getMinutes() - today.getMinutes());
 
 
 document.querySelector(".burger-menu").addEventListener("click", function(){
