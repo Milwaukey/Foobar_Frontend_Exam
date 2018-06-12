@@ -312,14 +312,13 @@
                         .beer_description {
                             font-size: 15px;
                         }
-
+   
                                 .beer_details {
                                     width: 100px;
                                     height: 30px;
                                     align-self: center;        
-                                    border: 2px solid transparent;
-                                    border-image: $orangeGradient;
-                                    border-image-slice: 1;
+                                    background: $OrangeLight;
+                                    color: $lightTextColor;
 
                                     text-transform: uppercase;
                                     text-align: center;
@@ -408,6 +407,8 @@
 
 #storage_reciever {
     margin-top: 15px;
+    display: grid;
+    grid-gap: 15px;
 
 .storage_wrapper {
             font-family: $PrimaryFont;
@@ -438,6 +439,7 @@
                         .storage_box {
                             width: 110px;
                             align-self: center;
+                            margin-bottom: 25px;
 
                             img {
                                 width: 100%;
@@ -464,4 +466,236 @@
                         }
 
 }
+}
+ 
+        .modal_order_kegs {
+            width: 400px;
+             height: 250px;
+            background: $orangeGradient;
+            position: absolute;
+            box-shadow: $boxShadow;
+            color: $lightTextColor;
+            border-radius: 10px;
+            margin-top: -510px;
+            margin-left: 50px;
+
+            h2 {
+                font-family: $PrimaryFont;
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .close {
+                width: 150px;
+                align-self: center;        
+                color: $lightTextColor;
+                border: 2px solid $lightTextColor;
+
+                text-transform: uppercase;
+                text-align: center;
+                padding: 2px;
+                font-family: $PrimaryFont;
+                margin-bottom: 15px;
+                margin-top: 15px;
+                margin: 0 auto;
+
+                &:hover {
+                    background: $lightTextColor;
+                    color: $darkTextColor;
+                }
+            }
+
+            
+.step-indicator {
+    margin-bottom: 20px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    font-family: $PrimaryFont;
+  }
+  
+  .step {
+    display: block;
+    float: left;
+    font-weight: bold;
+    background: $Approved;;
+    padding-right: 10px;
+    height: 30px;
+    line-height: 32px;
+    margin-right: 33px;
+    position: relative;
+    text-decoration: none;
+    color: $lightTextColor;
+    cursor: default;
+    text-transform: uppercase;
+  }
+  .step:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: -30px;
+    border: 15px solid transparent;
+    border-color: $Approved;
+    border-left-color: transparent;
+  }
+  .step:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: -30px;
+    border: 15px solid transparent;
+    border-left-color: $Approved;
+  }
+  .step:first-of-type {
+    border-radius: 2px 0 0 2px;
+    padding-left: 15px;
+  }
+  .step:first-of-type:before {
+    display: none;
+  }
+  .step:last-of-type {
+    border-radius: 0 2px 2px 0;
+    margin-right: 25px;
+    padding-right: 15px;
+  }
+  .step:last-of-type:after {
+    display: none;
+  }
+  .step.completed {
+    background: $darkBorder;
+    color: $lightTextColor;
+    cursor: pointer;
+  }
+  .step.completed:before {
+    border-color: $darkBorder;
+    border-left-color: transparent;
+  }
+  .step.completed:after {
+    border-left-color: $darkBorder;
+  }
+  .step.completed:hover {
+    background: $darkBorder;
+    border-color: $darkBorder;
+    color: $lightTextColor;
+    text-decoration: none;
+  }
+  .step.completed:hover:before {
+    border-color: $darkBorder;
+    border-left-color: transparent;
+  }
+  .step.completed:hover:after {
+    border-left-color: $darkBorder;
+  }
+            
+        }
+
+
+
+
+
+// TABS 
+
+.tabs_grid_wrapper {
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    background: #35394a;
+    border-radius: 10px;
+    padding: 0 25px 25px 25px;
+    height: 450px;
+
+    #tabs_reciever {
+        display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 50px;
+    }
+
+    .tabs {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #f3f3f3;
+        font-family: "Bowlby One", cursive;
+    }
+
+
+    .bar {
+        width: 35px;
+        height: 250px;
+        background: white;
+        margin-right: 20px;
+    }
+
+}
+
+
+ 
+.modal_window {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .8);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    visibility: hidden;
+    font-family: $PrimaryFont;
+
+            .div_modal_wrapper {
+                background-color: $lightBackground;
+                border-radius: 8px;
+                max-width: 1200px;
+                padding: 5px;
+                z-index: 500;
+
+                .top_information_img {
+                    width: 60px;
+                }
+                img {
+                    width: 100%
+                }
+
+                .top_information {
+                    display: grid;
+                    grid-template-columns: 130px 1fr;
+                }
+
+                .bold {
+                    font-weight: 800;
+                }
+
+                p {
+                    font-weight: 100;
+                }
+
+                h2 {
+                    font-family: $HeadFont;
+                }
+
+                .luk {
+                    border-radius: 0;
+                    height: 30px;
+                    width: 100px;
+                    align-self: center;
+                    background: #f09819;
+                    color: #f3f3f3;
+                    text-transform: uppercase;
+                    text-align: center;
+                    padding: 2px;
+                    margin: 0 auto;
+                    margin-top: 40px;
+                }
+            }
 }

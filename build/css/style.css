@@ -457,9 +457,8 @@
         width: 100px;
         height: 30px;
         align-self: center;
-        border: 2px solid transparent;
-        border-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
-        border-image-slice: 1;
+        background: #f09819;
+        color: #f3f3f3;
         text-transform: uppercase;
         text-align: center;
         padding: 2px;
@@ -518,7 +517,9 @@
     transform: translatex(-200%); } }
 
 #storage_reciever {
-  margin-top: 15px; }
+  margin-top: 15px;
+  display: grid;
+  grid-gap: 15px; }
   #storage_reciever .storage_wrapper {
     font-family: "Open Sans", sans-serif;
     text-align: center;
@@ -538,7 +539,8 @@
       font-weight: 800; }
     #storage_reciever .storage_wrapper .storage_box {
       width: 110px;
-      align-self: center; }
+      align-self: center;
+      margin-bottom: 25px; }
       #storage_reciever .storage_wrapper .storage_box img {
         width: 100%; }
     #storage_reciever .storage_wrapper .storage_now {
@@ -555,6 +557,178 @@
       #storage_reciever .storage_wrapper .storage_now:hover {
         background: #f09819;
         color: #f3f3f3; }
+
+.modal_order_kegs {
+  width: 400px;
+  height: 250px;
+  background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+  position: absolute;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  color: #f3f3f3;
+  border-radius: 10px;
+  margin-top: -510px;
+  margin-left: 50px; }
+  .modal_order_kegs h2 {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    margin-top: 30px; }
+  .modal_order_kegs .close {
+    width: 150px;
+    align-self: center;
+    color: #f3f3f3;
+    border: 2px solid #f3f3f3;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 2px;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin: 0 auto; }
+    .modal_order_kegs .close:hover {
+      background: #f3f3f3;
+      color: #35394a; }
+  .modal_order_kegs .step-indicator {
+    margin-bottom: 20px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-family: "Open Sans", sans-serif; }
+  .modal_order_kegs .step {
+    display: block;
+    float: left;
+    font-weight: bold;
+    background: #21cd92;
+    padding-right: 10px;
+    height: 30px;
+    line-height: 32px;
+    margin-right: 33px;
+    position: relative;
+    text-decoration: none;
+    color: #f3f3f3;
+    cursor: default;
+    text-transform: uppercase; }
+  .modal_order_kegs .step:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: -30px;
+    border: 15px solid transparent;
+    border-color: #21cd92;
+    border-left-color: transparent; }
+  .modal_order_kegs .step:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: -30px;
+    border: 15px solid transparent;
+    border-left-color: #21cd92; }
+  .modal_order_kegs .step:first-of-type {
+    border-radius: 2px 0 0 2px;
+    padding-left: 15px; }
+  .modal_order_kegs .step:first-of-type:before {
+    display: none; }
+  .modal_order_kegs .step:last-of-type {
+    border-radius: 0 2px 2px 0;
+    margin-right: 25px;
+    padding-right: 15px; }
+  .modal_order_kegs .step:last-of-type:after {
+    display: none; }
+  .modal_order_kegs .step.completed {
+    background: #393d50;
+    color: #f3f3f3;
+    cursor: pointer; }
+  .modal_order_kegs .step.completed:before {
+    border-color: #393d50;
+    border-left-color: transparent; }
+  .modal_order_kegs .step.completed:after {
+    border-left-color: #393d50; }
+  .modal_order_kegs .step.completed:hover {
+    background: #393d50;
+    border-color: #393d50;
+    color: #f3f3f3;
+    text-decoration: none; }
+  .modal_order_kegs .step.completed:hover:before {
+    border-color: #393d50;
+    border-left-color: transparent; }
+  .modal_order_kegs .step.completed:hover:after {
+    border-left-color: #393d50; }
+
+.tabs_grid_wrapper {
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  background: #35394a;
+  border-radius: 10px;
+  padding: 0 25px 25px 25px;
+  height: 450px; }
+  .tabs_grid_wrapper #tabs_reciever {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 50px; }
+  .tabs_grid_wrapper .tabs {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #f3f3f3;
+    font-family: "Bowlby One", cursive; }
+  .tabs_grid_wrapper .bar {
+    width: 35px;
+    height: 250px;
+    background: white;
+    margin-right: 20px; }
+
+.modal_window {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  left: 0;
+  top: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  visibility: hidden;
+  font-family: "Open Sans", sans-serif; }
+  .modal_window .div_modal_wrapper {
+    background-color: #f8f9fc;
+    border-radius: 8px;
+    max-width: 1200px;
+    padding: 5px;
+    z-index: 500; }
+    .modal_window .div_modal_wrapper .top_information_img {
+      width: 60px; }
+    .modal_window .div_modal_wrapper img {
+      width: 100%; }
+    .modal_window .div_modal_wrapper .top_information {
+      display: grid;
+      grid-template-columns: 130px 1fr; }
+    .modal_window .div_modal_wrapper .bold {
+      font-weight: 800; }
+    .modal_window .div_modal_wrapper p {
+      font-weight: 100; }
+    .modal_window .div_modal_wrapper h2 {
+      font-family: "Bowlby One", cursive; }
+    .modal_window .div_modal_wrapper .luk {
+      border-radius: 0;
+      height: 30px;
+      width: 100px;
+      align-self: center;
+      background: #f09819;
+      color: #f3f3f3;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 2px;
+      margin: 0 auto;
+      margin-top: 40px; }
 
 /* MOBILE LANDSCAPE */
 /* IPAD PORTRAIT */
@@ -600,6 +774,10 @@
     .storage_grid_wrapper #storage_reciever {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-gap: 15px; } }
+      grid-gap: 15px; }
+  .modal_order_kegs {
+    width: 600px;
+    height: 200px;
+    border-radius: 10px; } }
 
 /* LARGE DESKTOP */

@@ -75,32 +75,36 @@
                                                                 <line class="st3" x1="14" y1="33.9" x2="193" y2="33.9"/>
                                                                 <line class="st3" x1="14" y1="42.9" x2="193" y2="42.9"/>
                                                                 <line class="st3" x1="14" y1="52" x2="193" y2="52"/>
-                                                                <polyline points="15,30 20,30" fill="none" stroke="white" />
+                                                                <polyline points="15,30" fill="none" stroke="#f09819" />
                                                                 </svg>
                                                          </div>
                                                     </div>
 
                                                     <div class="box"> <div class="medarbejdere">Crew</div>
                                                             <div id="bartender_reciever"></div>
-                                                    </div>
+                                                    </div> 
                                                     
                                                     <div class=""> <div class="orders">Serving</div>
                                                             <div id="customerOrder_reciever"></div>
                                                     </div>
 
-                                                    <div class="tabs_grid_wrapper"> <div class="orders">Tabs</div> 
+                                                    <div class="tabs_grid_wrapper"> <div class="tabs">Tabs</div> 
                                                         <div id="tabs_reciever">
-                                                                <div class="tabs_wrapper">
-                                                                        <p class="beer_name"></p>
-                                                                        <p class="capacity"></p>
-                                                                        <p class="levels"></p>
-                                                                </div>
+                                                                
+                                                                <div class="bar"></div>
+                                                                <div class="bar"></div>
+                                                                <div class="bar"></div>
+                                                                <div class="bar"></div>
+                                                                <div class="bar"></div>
+                                                                <div class="bar"></div>
+                                                                <div class="bar"></div>
+            
                                                         </div>
                                                     </div>
 
                                                     <div class="beer_grid_wrapper">
                                                             <div class="beer_heading">Beer Information</div>
-                                                            <div id="beerInfo_reciever"></div>
+                                                            <div id="beerInfo_reciever"></div>                                                            
                                                      </div>
 
                                                      <div class="message_grid_wrapper">
@@ -128,7 +132,7 @@
                                                                     <div id="delete" style="font-family: 'Bowlby One', cursive; position: absolute; margin: 10px;">X</div>
                                                                     <div class="crew_img">
                                                                         <img src="img/martin.jpg">
-                                                                        <p>Peter</p>
+                                                                        <p>Martin</p>
                                                                     </div>
     
                                                                     <div class="message_wrap">
@@ -174,6 +178,23 @@
                                                     <div class="storage_grid_wrapper">
                                                         <div class="orders">Storage</div>
                                                             <div id="storage_reciever"></div>
+
+
+
+                                                             <!-- MODAL ORDER - ANIMATION -->
+                                                                <div class="modal_order_kegs hide">
+                                                                    
+                                                                    <h2>YOU HAVE PLACED AN NEW ORDER</h2>
+
+                                                                    <div class="step-indicator">
+                                                                            <a class="step completed" href="#">Selecting</a>
+                                                                            <a class="step completed" href="#">Order </a>
+                                                                            <a class="step" href="#">Approved</a>
+                                                                        </div>
+
+                                                                        <div class="close"> CLOSE </div>
+                                                                </div>
+
                                                     </div>
                                                     
 
@@ -219,7 +240,7 @@
                 <h2 class="storage_name"></h2>
                 <p class="storage_mount"></p>
                 <div class="storage_box">
-                    <img src="img/box.svg">
+                    <img src="">
                 </div>
                 <div class="storage_now">ORDER</div>
             </div>
@@ -238,9 +259,36 @@
                     <div class="beer_details">Details</div>
                 </div>
             </div>
+
         </template>
 
 
+
+               <!-- POP UP VINDU -->
+               <div class="modal_window">
+                    <div class="div_modal_wrapper">
+                        <div class="top_information">
+                                <div class="top_information_img">
+                                        <img src="img/new_type/elhefe.png">
+                                </div>
+                                <div class="beer_info_modal">
+                                        <h2 class="beer_info_name">NAME</h2>
+                                        <div class="bold">Category:<p class="categori">categori</p></div>
+                                        <div class="bold">Alcohol%:<p class="alkoholprocent">Alkohol procent 5.7%</p></div>
+                                        <div class="bold">Popularity:<p class="populær">Popularity</p></div>
+                                        <div class="bold">Pouring Speed:<p class="speed">Speed</p></div>
+                                </div>
+                        </div>
+                        <div>
+                            <h3>Description:</h3>
+                            <div class="bold">Appearence:<p class="appearence">Appearence</p></div><br>
+                            <div class="bold">Aroma:<p class="aroma">Aroma</p></div><br>
+                            <!-- <div class="bold">Flavor:<p class="flavor">Flavor</p></div><br> -->
+                            <div class="bold">Mouthfeel:<p class="mouthfeel">mounthfeel</p></div><br>
+                        </div>
+                        <div class="luk">Luk</div>
+                    </div>
+                </div>
 
 
 <!-- This is the script, that picks up the data for the exam project -->
