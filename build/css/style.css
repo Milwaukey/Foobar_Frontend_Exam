@@ -664,13 +664,7 @@
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
   background: #35394a;
   border-radius: 10px;
-  padding: 0 25px 25px 25px;
-  height: 450px; }
-  .tabs_grid_wrapper #tabs_reciever {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding-top: 50px; }
+  padding: 0 25px 25px 25px; }
   .tabs_grid_wrapper .tabs {
     width: 100%;
     padding: 10px;
@@ -679,11 +673,30 @@
     text-transform: uppercase;
     color: #f3f3f3;
     font-family: "Bowlby One", cursive; }
-  .tabs_grid_wrapper .bar {
-    width: 35px;
-    height: 250px;
-    background: white;
-    margin-right: 20px; }
+  .tabs_grid_wrapper .bar_wrapper {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); }
+    .tabs_grid_wrapper .bar_wrapper .bar {
+      width: 30px;
+      height: 250px;
+      margin-bottom: 15px;
+      background: white;
+      border-radius: 3px; }
+      .tabs_grid_wrapper .bar_wrapper .bar .bar_indhold {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(0, #f09819 50%, #f3efef 50%);
+        color: #35394a;
+        font-size: 12px;
+        text-align: center;
+        border-radius: 3px; }
+  .tabs_grid_wrapper #tabs_reciever {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); }
+    .tabs_grid_wrapper #tabs_reciever .tabs_img {
+      width: 30px; }
+      .tabs_grid_wrapper #tabs_reciever .tabs_img img {
+        width: 100%; }
 
 .modal_window {
   display: grid;

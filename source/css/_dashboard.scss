@@ -608,14 +608,6 @@
     background: #35394a;
     border-radius: 10px;
     padding: 0 25px 25px 25px;
-    height: 450px;
-
-    #tabs_reciever {
-        display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding-top: 50px;
-    }
 
     .tabs {
         width: 100%;
@@ -627,18 +619,45 @@
         font-family: "Bowlby One", cursive;
     }
 
+    .bar_wrapper {
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
 
-    .bar {
-        width: 35px;
-        height: 250px;
-        background: white;
-        margin-right: 20px;
+        .bar {
+            width: 30px;
+            height: 250px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 3px;
+
+            .bar_indhold {
+                width: 100%;
+                height: 250px;
+               background: linear-gradient(0, $OrangeLight 50%, #f3efef 50%);
+               color: $darkTextColor;
+               font-size: 12px;
+               text-align: center;
+               border-radius: 3px;
+            }
+        }
     }
 
+    #tabs_reciever {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+
+        .tabs_img {
+            width: 30px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
 }
 
 
- 
+   
 .modal_window {
     display: grid;
     justify-content: center;

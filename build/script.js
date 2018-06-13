@@ -1,17 +1,28 @@
 "use strict";
 
-// GLOBAL VARIABLES
+//////////////////////////////////////////////////////////////////////////////
+////////                        GLOBAL VARIABLE                    //////////
+//////////////////////////////////////////////////////////////////////////////
 let template_bartender = document.querySelector("#bartender_template").content;
 let template_beerType = document.querySelector("#beertypes_template").content;
 let template_orders = document.querySelector("#order_template").content;
 let template_storage = document.querySelector("#storage_template").content;
+let template_tabs = document.querySelector("#tabs_template").content;
+
 let data;
 
-// WHEN THE SITE LOADS
+//////////////////////////////////////////////////////////////////////////////
+////////                          LOAD SITET                       //////////
+//////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded",loadScript);
 
 const queHistory = []; // [30,30,45,55,25,5,15];
 
+
+
+//////////////////////////////////////////////////////////////////////////////
+////////                        STARTING SCRIPT                   //////////
+//////////////////////////////////////////////////////////////////////////////
 function loadScript(){
 
     data = JSON.parse(FooBar.getData());
@@ -21,6 +32,13 @@ function loadScript(){
     document.querySelector("#beerInfo_reciever").innerHTML = '';
     document.querySelector("#customerOrder_reciever").innerHTML = '';
     document.querySelector("#storage_reciever").innerHTML = '';
+    document.querySelector("#tabs_reciever").innerHTML = '';
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+////////                            QUE                             //////////
+//////////////////////////////////////////////////////////////////////////////
 
     // console.log("Queue: ", data.queue);
     queHistory.push( data.queue.length );
@@ -31,6 +49,11 @@ function loadScript(){
         queHistory.shift();
     }
     drawQueueHistory();
+
+
+//////////////////////////////////////////////////////////////////////////////
+////////                       BARTENDERS                          //////////
+//////////////////////////////////////////////////////////////////////////////
 
                 // BARTENDERS
                 data.bartenders.forEach(function(e){
@@ -67,7 +90,83 @@ function loadScript(){
                 });
 
 
-                // BEERTYPES
+//////////////////////////////////////////////////////////////////////////////
+////////                          SERVING                           //////////
+//////////////////////////////////////////////////////////////////////////////
+                        data.serving.forEach(function(e){
+                                            
+                            // CLONE TEMPLATE FOR ORDERS
+                            let clone_orders = template_orders.cloneNode(true);
+
+                            // ADDING LABELS TO THE BEER TYPE
+                            let imgHolder = clone_orders.querySelector(".beers");
+                            e.order.forEach(function(anOrder){
+                                let beertype = data.beertypes.find(function(el){
+                                    return el.name === anOrder
+                                });
+                                // console.log(beertype)
+                                let img = document.createElement('img');
+                                img.src= "img/new_type/"+beertype.label;
+                                imgHolder.appendChild(img)
+
+                            });
+
+                            // APPENDING IT TO THE HTML
+                            document.querySelector("#customerOrder_reciever").appendChild(clone_orders);
+                        });
+
+//////////////////////////////////////////////////////////////////////////////
+////////                        TABS                                //////////
+//////////////////////////////////////////////////////////////////////////////
+
+                        data.taps.forEach(function(e){
+
+                            let clone_tabs = template_tabs.cloneNode(true);
+
+                            // console.log(e);
+                            // console.log(e.capacity);
+                            // console.log(e.level);
+
+                            clone_tabs.querySelector(".bar_indhold").textContent = e.level;
+                            
+                            // Some math, that calc the change, and changing the % of the bar_info
+
+
+            // random number 7 * 100% = 700 / 25 = 28% 
+            //random number (7 * 180px)/ 25 = excat number to the height
+
+                            clone_tabs.querySelector
+
+
+
+
+
+
+
+                            if(e.level == 2500){
+                                clone_tabs.querySelector(".bar_indhold").style.background = "linear-gradient(0, #f09819 100%, #f3efef 0%)";
+                            
+                            } else {
+                                console.log(e.level);
+                                let filledValue = ((e.level * 10)/25)/10;
+                                let restValue = 100 - filledValue;
+                                // console.log(filledValue);
+                                clone_tabs.querySelector(".bar_indhold").style.background = `linear-gradient(0, #f09819 ${filledValue}%, #f3efef ${restValue}%)`;
+                            }
+
+
+                            
+                            let beerLabel = e.beer.toLowerCase();
+                            clone_tabs.querySelector(".tabs_img img").src = "img/new_type/"+beerLabel+".png";
+
+                            document.querySelector("#tabs_reciever").appendChild(clone_tabs);
+                        });
+
+
+//////////////////////////////////////////////////////////////////////////////
+////////                       BEER TYPES                          //////////
+//////////////////////////////////////////////////////////////////////////////
+
                 data.beertypes.forEach(function(e){
 
                             // CLONE TEMPLATE FOR ORDERS
@@ -106,82 +205,51 @@ function loadScript(){
                                     document.querySelector(".modal_window").style.visibility = "hidden";
 
                                 })
-                                
-
                             });
-
-
-
+                        
                             // APPENDING IT TO THE HTML
                             document.querySelector("#beerInfo_reciever").appendChild(clone_beerType);
                 });
 
+//////////////////////////////////////////////////////////////////////////////
+////////                         STORAGE                          //////////
+//////////////////////////////////////////////////////////////////////////////
 
-                // SERVING
-                data.serving.forEach(function(e){
-                    
-                            // CLONE TEMPLATE FOR ORDERS
-                            let clone_orders = template_orders.cloneNode(true);
+                    data.storage.forEach(function(e){
 
-                            // ADDING LABELS TO THE BEER TYPE
-                            let imgHolder = clone_orders.querySelector(".beers");
-                            e.order.forEach(function(anOrder){
-                                let beertype = data.beertypes.find(function(el){
-                                    return el.name === anOrder
+                                let clone_storage = template_storage.cloneNode(true);
+
+                                clone_storage.querySelector(".storage_name").textContent = e.name;
+                                clone_storage.querySelector(".storage_mount").textContent = e.amount;
+
+                                let lowStorage = e.amount;
+
+                                if(lowStorage < 3) {
+                                    clone_storage.querySelector(".storage_wrapper").style.background = "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)";
+                                }
+
+                                // ADDING LABEL TO THE STORAGE
+                                let beer_name = e.name.toLowerCase();
+                                clone_storage.querySelector(".storage_box img").src = "img/storage/"+beer_name+".svg";
+
+                                // ORDER NOW WINDOWS
+                                clone_storage.querySelector(".storage_now").addEventListener("click", function(ex){
+
+                                    // console.log("HEJ")
+                                    document.querySelector(".modal_order_kegs").style.display = "block";
+
+                                    document.querySelector(".close").addEventListener("click", function(){
+
+                                        document.querySelector(".modal_order_kegs").style.display = "none";
+                                    }) 
                                 });
-                                // console.log(beertype)
-                                let img = document.createElement('img');
-                                img.src= "img/new_type/"+beertype.label;
-                                imgHolder.appendChild(img)
-        
-                            });
-
-                            // APPENDING IT TO THE HTML
-                            document.querySelector("#customerOrder_reciever").appendChild(clone_orders);
-
+                                document.querySelector("#storage_reciever").appendChild(clone_storage);
                 });
 
 
-                // STORAGE
-                data.storage.forEach(function(e){
-
-                            let clone_storage = template_storage.cloneNode(true);
-
-                            clone_storage.querySelector(".storage_name").textContent = e.name;
-                            clone_storage.querySelector(".storage_mount").textContent = e.amount;
-
-                            let lowStorage = e.amount;
-
-                            if(lowStorage < 3) {
-                                clone_storage.querySelector(".storage_wrapper").style.background = "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)";
-                            }
-
-                            // ADDING LABEL TO THE STORAGE
-                            let beer_name = e.name.toLowerCase();
-                            clone_storage.querySelector(".storage_box img").src = "img/storage/"+beer_name+".svg";
-
-                            // ORDER NOW WINDOWS
-                            clone_storage.querySelector(".storage_now").addEventListener("click", function(ex){
-
-                                // console.log("HEJ")
-                                document.querySelector(".modal_order_kegs").style.display = "block";
-
-                                document.querySelector(".close").addEventListener("click", function(){
-
-                                    document.querySelector(".modal_order_kegs").style.display = "none";
-                                })
-                                
-                            });
-                            
-
-                            document.querySelector("#storage_reciever").appendChild(clone_storage);
-
-
-
-                });
-
-
-                // CLOSING IN TIME 
+//////////////////////////////////////////////////////////////////////////////
+////////                       CLOSING TIME                        //////////
+//////////////////////////////////////////////////////////////////////////////
                 let today = new Date();
                 let goalDate = new Date(0, 0, 0, 21, 59, 0, 0);
 
@@ -191,7 +259,9 @@ function loadScript(){
 }
 
 
-// DRAWRING QUE
+//////////////////////////////////////////////////////////////////////////////
+////////                         DRAWING QUE                       //////////
+//////////////////////////////////////////////////////////////////////////////
 function drawQueueHistory() {
                 // byg points efter queueHistory
                 //<polyline points="15,30 20,30 25,45 30,55 35,25 40,5 45,15" fill="none" stroke="white" />
@@ -221,16 +291,17 @@ function drawQueueHistory() {
 
 }
 
-                // MESSAGES
+//////////////////////////////////////////////////////////////////////////////
+////////                          MESSAGES                           //////////
+//////////////////////////////////////////////////////////////////////////////
                 // Remove element on click, 
                 let deleteDivs = document.querySelectorAll(".delete");
-                console.log(deleteDivs);
+                // console.log(deleteDivs);
 
                 // For Loops can execute a block of code a number of times, so we get a array of how many divs, that has the class "delete";
                 // and then says that everyone that have this clss, should have an eventlistner and a remove / slide added on click.
                 for (let i=0; i<deleteDivs.length;i++) {
                     deleteDivs[i].addEventListener("click",function(ex){
-                        console.log("hej")
 
                     let bla = ex.target.parentElement;
                     bla.classList.add("slideOut");
@@ -240,18 +311,10 @@ function drawQueueHistory() {
                     });
                 });
                 }
-                // document.querySelectorAll(".delete").addEventListener("click",function(ex){
-                //         console.log("hej")
 
-                //     let bla = ex.target.parentElement;
-                //     bla.classList.add("slideOut");
-                    
-                //     bla.addEventListener("animationend", function(){
-                //         bla.style.display = "none";
-                //     });
-                // });
-
-                // BURGER MENU 
+//////////////////////////////////////////////////////////////////////////////
+////////                          BURGER MENU                       //////////
+//////////////////////////////////////////////////////////////////////////////
                 document.querySelector(".burger-menu").addEventListener("click", function(){
 
                     let menu = document.querySelector(".burger-menu");
@@ -267,5 +330,4 @@ function drawQueueHistory() {
 
      setInterval(function(){ 
          loadScript();    
-     }, 10000);
-
+     }, 5000);
