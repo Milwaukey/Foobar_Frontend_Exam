@@ -25,7 +25,7 @@ function loadScript(){
     // console.log("Queue: ", data.queue);
     queHistory.push( data.queue.length );
 
-    if( queHistory.length > 40 ) // hvor mange punkter der må være i grafen, før den scroller
+    if( queHistory.length > 32 ) // hvor mange punkter der må være i grafen, før den scroller
     {
         // console.log("scroll queueueueu");
         queHistory.shift();
@@ -223,7 +223,13 @@ function drawQueueHistory() {
 
                 // MESSAGES
                 // Remove element on click, 
-                document.querySelector("#delete").addEventListener("click",function(ex){
+                let deleteDivs = document.querySelectorAll(".delete");
+                console.log(deleteDivs);
+
+                // For Loops can execute a block of code a number of times, so we get a array of how many divs, that has the class "delete";
+                // and then says that everyone that have this clss, should have an eventlistner and a remove / slide added on click.
+                for (let i=0; i<deleteDivs.length;i++) {
+                    deleteDivs[i].addEventListener("click",function(ex){
                         console.log("hej")
 
                     let bla = ex.target.parentElement;
@@ -233,6 +239,17 @@ function drawQueueHistory() {
                         bla.style.display = "none";
                     });
                 });
+                }
+                // document.querySelectorAll(".delete").addEventListener("click",function(ex){
+                //         console.log("hej")
+
+                //     let bla = ex.target.parentElement;
+                //     bla.classList.add("slideOut");
+                    
+                //     bla.addEventListener("animationend", function(){
+                //         bla.style.display = "none";
+                //     });
+                // });
 
                 // BURGER MENU 
                 document.querySelector(".burger-menu").addEventListener("click", function(){
