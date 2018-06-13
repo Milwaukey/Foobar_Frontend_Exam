@@ -123,26 +123,9 @@ function loadScript(){
 
                             let clone_tabs = template_tabs.cloneNode(true);
 
-                            // console.log(e);
-                            // console.log(e.capacity);
-                            // console.log(e.level);
-
                             clone_tabs.querySelector(".bar_indhold").textContent = e.level;
                             
                             // Some math, that calc the change, and changing the % of the bar_info
-
-
-            // random number 7 * 100% = 700 / 25 = 28% 
-            //random number (7 * 180px)/ 25 = excat number to the height
-
-                            clone_tabs.querySelector
-
-
-
-
-
-
-
                             if(e.level == 2500){
                                 clone_tabs.querySelector(".bar_indhold").style.background = "linear-gradient(0, #f09819 100%, #f3efef 0%)";
                             
@@ -153,8 +136,6 @@ function loadScript(){
                                 // console.log(filledValue);
                                 clone_tabs.querySelector(".bar_indhold").style.background = `linear-gradient(0, #f09819 ${filledValue}%, #f3efef ${restValue}%)`;
                             }
-
-
                             
                             let beerLabel = e.beer.toLowerCase();
                             clone_tabs.querySelector(".tabs_img img").src = "img/new_type/"+beerLabel+".png";
@@ -180,7 +161,7 @@ function loadScript(){
                             let beerLabel = e.label;
                             clone_beerType.querySelector(".beer_img img").src = "img/new_type/"+beerLabel;
 
-                            // Click event for details
+                            // Click event for details _ MODAL 
                             clone_beerType.querySelector(".beer_details").addEventListener("click",function(){
                                 console.log(e.name);
 
@@ -287,14 +268,11 @@ function drawQueueHistory() {
                 });
 
                 document.querySelector("#que_reciever polyline").setAttribute("points", points);
-
-
 }
 
 //////////////////////////////////////////////////////////////////////////////
 ////////                          MESSAGES                           //////////
 //////////////////////////////////////////////////////////////////////////////
-                // Remove element on click, 
                 let deleteDivs = document.querySelectorAll(".delete");
                 // console.log(deleteDivs);
 
@@ -326,7 +304,6 @@ function drawQueueHistory() {
                         menu_text.classList.toggle("hide");
                     
                     });
-
 
      setInterval(function(){ 
          loadScript();    

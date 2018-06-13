@@ -13,7 +13,7 @@
 
 
 
-/* DESKTOP */
+/* DESKTOP */ 
 @media only screen and (min-width: 1025px) {
 
     .burger-menu--closed {
@@ -22,12 +22,12 @@
 
     #dashboard_container {
         display: grid;
-        grid-template-columns: 350px 1fr;
+        grid-template-columns: 280px 1fr;
     }
 
     #menu_info {
         display: block;
-        width: 350px;
+        width: 280px;
         position: relative; 
         box-shadow: $boxShadowRight;
  

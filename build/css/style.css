@@ -450,9 +450,9 @@
       font-family: "Open Sans", sans-serif; }
       #beerInfo_reciever .beer_wrapper .beer_info .beer_name {
         text-transform: uppercase;
-        font-size: 22px; }
-      #beerInfo_reciever .beer_wrapper .beer_info .beer_description {
         font-size: 15px; }
+      #beerInfo_reciever .beer_wrapper .beer_info .beer_description {
+        font-size: 12px; }
       #beerInfo_reciever .beer_wrapper .beer_info .beer_details {
         width: 100px;
         height: 30px;
@@ -494,7 +494,9 @@
       justify-content: space-between; }
       .message_grid_wrapper .message_wrapper .message_box .message_wrap h2 {
         font-family: "Bowlby One", cursive;
-        font-size: 23px; }
+        font-size: 17px; }
+      .message_grid_wrapper .message_wrapper .message_box .message_wrap p {
+        font-size: 12px; }
       .message_grid_wrapper .message_wrapper .message_box .message_wrap .read_more {
         width: 130px;
         color: #f3f3f3;
@@ -752,10 +754,10 @@
     display: none; }
   #dashboard_container {
     display: grid;
-    grid-template-columns: 350px 1fr; }
+    grid-template-columns: 280px 1fr; }
   #menu_info {
     display: block;
-    width: 350px;
+    width: 280px;
     position: relative;
     box-shadow: 4px 0 2px -2px rgba(0, 0, 0, 0.1);
     grid-column: 1/2; }
