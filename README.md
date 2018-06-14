@@ -5,7 +5,6 @@ This project is done by Louise Jessen & Cecilie Glavind, this is a exam project 
 ## GET STARTED! 
 1. Clone our repository 
 2. Do a npm install
-3. npm install --save-dev node-sass
 
 
 ## File structure

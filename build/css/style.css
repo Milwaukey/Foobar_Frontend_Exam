@@ -464,7 +464,6 @@
         padding: 2px;
         font-family: "Open Sans", sans-serif; }
         #beerInfo_reciever .beer_wrapper .beer_info .beer_details:hover {
-          border: 2px solid transparent;
           background: #f09819;
           color: #f3f3f3; }
 
@@ -720,18 +719,21 @@
     padding: 5px;
     z-index: 500; }
     .modal_window .div_modal_wrapper .top_information_img {
-      width: 60px; }
+      width: 40px; }
     .modal_window .div_modal_wrapper img {
       width: 100%; }
     .modal_window .div_modal_wrapper .top_information {
       display: grid;
       grid-template-columns: 130px 1fr; }
     .modal_window .div_modal_wrapper .bold {
-      font-weight: 800; }
+      font-weight: 800;
+      font-size: 12px; }
     .modal_window .div_modal_wrapper p {
-      font-weight: 100; }
-    .modal_window .div_modal_wrapper h2 {
-      font-family: "Bowlby One", cursive; }
+      font-weight: 100;
+      font-size: 10px; }
+    .modal_window .div_modal_wrapper h2, .modal_window .div_modal_wrapper h3 {
+      font-family: "Bowlby One", cursive;
+      font-size: 18px; }
     .modal_window .div_modal_wrapper .luk {
       border-radius: 0;
       height: 30px;

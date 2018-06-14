@@ -16,13 +16,13 @@ let data;
 //////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded",loadScript);
 
-const queHistory = []; // [30,30,45,55,25,5,15];
-
-
 
 //////////////////////////////////////////////////////////////////////////////
 ////////                        STARTING SCRIPT                   //////////
 //////////////////////////////////////////////////////////////////////////////
+const queHistory = []; // [30,30,45,55,25,5,15];
+
+
 function loadScript(){
 
     data = JSON.parse(FooBar.getData());
@@ -130,7 +130,7 @@ function loadScript(){
                                 clone_tabs.querySelector(".bar_indhold").style.background = "linear-gradient(0, #f09819 100%, #f3efef 0%)";
                             
                             } else {
-                                console.log(e.level);
+                                // console.log(e.level);
                                 let filledValue = ((e.level * 10)/25)/10;
                                 let restValue = 100 - filledValue;
                                 // console.log(filledValue);
